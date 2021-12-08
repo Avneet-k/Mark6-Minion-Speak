@@ -10,7 +10,7 @@ function getTranslation(input){
     return serverURL + "?" + "text=" + input; 
 };
 
-function errorHandler(){  
+function errorHandler(error){  
     console.log("error occured", error);
    alert("Something wrong with the server, try again after some time")
 }
@@ -19,7 +19,7 @@ function clickHandler(){
    var inputText = textInput.value; //taking input 
 //   calling server for processing
    fetch(getTranslation(inputText))
-   .then(response => response.json()) //promise = u reterive this then will show that
+   .then(response => response.json()) 
    .then(json => {
        var translatedOutput = json.contents.translated;  //get the translated output
        outputDiv.innerText = translatedOutput; //show translated output in div
